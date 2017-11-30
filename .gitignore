@@ -1,0 +1,8 @@
+# Pip install
+*.egg-info/
+*.py[cod]
+*$py.class
+__pycache__/
+ObjectTracker/info.py
+
+
