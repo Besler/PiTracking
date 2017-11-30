@@ -1,0 +1,33 @@
+# GPIO Ports
+Vcc was set to he 3.3 v.
+Ground was set to 0 v.
+
+Pin A: GPIO17, Pin# 11, GPIO_GEN0
+Pin B: GPIO18, Pin# 12, GPIO_GEN1
+
+GPIO.setmode(GPIO.BCM)
+
+# Hardware
+NPN transistor 2N4401
+
+# Setup
+
+
+# Current Test
+Below is table of current measured with a ammeter. Units
+are reported in mA.
+
+Pin | GPIO Current | Total Current |
+----|--------------|--------------|
+Pin A | 0.54 | 5.95 |
+Pin B | 0.51 | 5.11 |
+----|--------------|--------------|
+
+Both pins on high (3.3 V) gave a total current of 11.06 mA.
+
+# Imports
+sudo apt-get install python-rpi.gpio
+pip3 install RPi.GPIO
+pip3 install "picamera[array]"
+
+tutorial on compiling opencv: https://www.pyimagesearch.com/2017/10/09/optimizing-opencv-on-the-raspberry-pi/
