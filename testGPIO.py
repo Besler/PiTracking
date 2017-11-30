@@ -6,7 +6,8 @@
 #   Perform a test run of the GPIO pins on the board
 #
 # Notes:
-#   - Be certain to test the configuration on your board.
+#   - Be certain to set pi.conf to correspond to your board.
+#   - The two LEDs should alternate (HL -> LH -> HH)
 
 # Imports
 from __future__ import print_function
