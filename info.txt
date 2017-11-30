@@ -5,13 +5,14 @@ Ground was set to 0 v.
 Pin A: GPIO17, Pin# 11, GPIO_GEN0
 Pin B: GPIO18, Pin# 12, GPIO_GEN1
 
-GPIO.setmode(GPIO.BCM)
-
 # Hardware
-NPN transistor 2N4401
+2x NPN transistor 2N4401
+1x small breadboard
+2x 4 k ohm resistors
+2x 56 k ohm resistors
 
 # Setup
-
+Setup NPN transitors with 
 
 # Current Test
 Below is table of current measured with a ammeter. Units
@@ -25,9 +26,16 @@ Pin B | 0.51 | 5.11 |
 
 Both pins on high (3.3 V) gave a total current of 11.06 mA.
 
-# Imports
+This is low current draw and is probably low enough for both the GPIO and LED safety.
+I don't have a datasheet for the LEDs but they're probably safe below 20 mA.
+Apparently the raspberry pi GPIO pins can handle 50 mA max, so we're safe with a
+0.54 mA draw on the base of the transistor.
+
+# Imports and Installs
 sudo apt-get install python-rpi.gpio
 pip3 install RPi.GPIO
 pip3 install "picamera[array]"
 
 tutorial on compiling opencv: https://www.pyimagesearch.com/2017/10/09/optimizing-opencv-on-the-raspberry-pi/
+I used a bunch of tutorials, online documentation, etc. for developing the code.
+
