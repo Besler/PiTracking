@@ -39,3 +39,15 @@ pip3 install "picamera[array]"
 tutorial on compiling opencv: https://www.pyimagesearch.com/2017/10/09/optimizing-opencv-on-the-raspberry-pi/
 I used a bunch of tutorials, online documentation, etc. for developing the code.
 
+# Setup 
+```bash
+mv pitracker.sh /etc/init.d
+cd /etc/init.d
+chmod 0755  pitracker.sh
+sudo chkconfig --add pitracker.sh
+sudo systemctl daemon-reload
+
+# Test it out!
+sudo service pitracker.sh start
+```
+
