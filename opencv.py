@@ -6,10 +6,11 @@ import RPi.GPIO as GPIO
 import os
 
 # Load configuration files
-if len(os.sys.argv) == 2:
-    exec(open(os.sys.argv[1]).read(), globals())
+if len(os.sys.argv) > 1:
+  exec(open(os.sys.argv[1]).read(), globals())
 else:
-    exec(open('pi.conf').read(), globals())
+  filePath = os.path.dirname(os.path.realpath(__file__))
+  exec(open(os.path.join(filePath, 'pi.conf')).read(), globals())
 
 # Configure GPIO pints
 GPIO.setmode(GPIO.BCM)
@@ -99,9 +100,10 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
       GPIO.output(cf['PinB'], GPIO.HIGH)
 
     # Print some helpful info
-    print('center: {}'.format(center))
-    print('shape: {}'.format(shape))
-    print('')
+    if cf['Interactive']:
+      print('center: {}'.format(center))
+      print('shape: {}'.format(shape))
+      print('')
     
   else:
     GPIO.output(cf['PinA'], GPIO.LOW)
@@ -111,11 +113,13 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
   # clear the stream in preparation for the next frame
   rawCapture.truncate(0)
 
-  # Show frame
-  cv2.imshow('Frame', frame)
-  if cv2.waitKey(1) & 0xFF == ord('q'):
-      break
+  # Show frame if the shell was ran in interactive mode
+  if cf['Interactive']:
+    cv2.imshow('Frame', frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
 # When everything done, release the capture
 GPIO.cleanup()
 cv2.destroyAllWindows()
+
