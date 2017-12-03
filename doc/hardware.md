@@ -71,6 +71,8 @@ The Pi header wiring and solderless breadboard wiring are showen below.
   <img src="img/wiring.jpg" width="30%">
 </p>
 
+I used GPIO17 (Pin# 11, GPIO_GEN0) for LED A and GPIO18 (Pin# 12, GPIO_GEN1) for LED B.
+
 ## Current Measurements
 Once the board was wired up, I did some current measurements to make sure my math
 worked out. I was looking for a very small current from the GPIO pins and a current
@@ -78,8 +80,8 @@ through the LED less than 15 mA but still large enough to have a bright LED.
 
 Pin | GPIO Current | Total Current |
 ----|--------------|--------------|
-Pin A | 0.54 | 5.95 |
-Pin B | 0.51 | 5.11 |
+LED A | 0.54 | 5.95 |
+LED B | 0.51 | 5.11 |
 
 When I turned on both LEDs I had a total current from the headers to the board of 11.06 mA.
 I'm happy with these current values.
